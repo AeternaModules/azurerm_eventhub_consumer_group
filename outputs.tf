@@ -1,3 +1,7 @@
+output "eventhub_consumer_groups_id" {
+  description = "Map of id values across all eventhub_consumer_groups, keyed the same as var.eventhub_consumer_groups"
+  value       = { for k, v in azurerm_eventhub_consumer_group.eventhub_consumer_groups : k => v.id }
+}
 output "eventhub_consumer_groups_eventhub_name" {
   description = "Map of eventhub_name values across all eventhub_consumer_groups, keyed the same as var.eventhub_consumer_groups"
   value       = { for k, v in azurerm_eventhub_consumer_group.eventhub_consumer_groups : k => v.eventhub_name }
